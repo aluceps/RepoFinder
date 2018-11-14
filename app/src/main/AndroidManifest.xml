@@ -3,6 +3,8 @@
     package="me.aluceps.repofinder"
     >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
