@@ -10,5 +10,7 @@ import javax.inject.Singleton
 ])
 interface AppComponent {
 
+    fun plus(module: ActivityModule): ActivityComponent
+
     fun inject(application: MyApplication)
 }

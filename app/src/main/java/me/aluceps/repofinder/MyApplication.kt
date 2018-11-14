@@ -7,13 +7,13 @@ import me.aluceps.repofinder.di.DaggerAppComponent
 
 class MyApplication : Application() {
 
-    private lateinit var component: AppComponent
+    private var component: AppComponent? = null
 
     private val module: AppModule by lazy {
         AppModule(this)
     }
 
-    fun getComponent(): AppComponent = component
+    fun getComponent(): AppComponent? = component
 
     override fun onCreate() {
         super.onCreate()
@@ -24,6 +24,6 @@ class MyApplication : Application() {
         component = DaggerAppComponent.builder()
                 .appModule(module)
                 .build()
-        component.inject(this)
+        component?.inject(this)
     }
 }
