@@ -1,23 +1,27 @@
 package me.aluceps.repofinder.ui
 
-import me.aluceps.repofinder.databinding.ActivityMainBinding
-
 class MainContract {
 
     interface View {
 
         fun initializePresenter()
 
-        fun initializeView(binding: ActivityMainBinding)
+        fun initializeView()
 
         fun setItem()
+
+        fun search()
+
+        fun showProgressBar()
+
+        fun hideProgressBar()
     }
 
     interface Presenter<T : View> {
 
         fun attachView(view: T)
 
-        fun search()
+        fun search(q: String, limit: Int)
 
         fun destroy()
     }

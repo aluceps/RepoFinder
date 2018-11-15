@@ -11,9 +11,16 @@ import me.aluceps.repofinder.MyApplication
 import me.aluceps.repofinder.R
 import me.aluceps.repofinder.databinding.ActivityMainBinding
 import me.aluceps.repofinder.di.ActivityModule
+import me.aluceps.repofinder.util.isGone
+import me.aluceps.repofinder.util.toGone
+import me.aluceps.repofinder.util.toVisible
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainContract.View {
+
+    private val binding: ActivityMainBinding by lazy {
+        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+    }
 
     @Inject
     lateinit var presenter: MainPresenter
@@ -22,19 +29,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         MainAdapter().apply {
             setOnClickListener(object : MainAdapter.OnClickListener {
                 override fun click() {
-                    presenter.search()
+                    search()
                 }
             })
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initializePresenter()
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)?.run {
-            initializeView(this)
-        }
+        initializeView()
     }
 
     override fun onDestroy() {
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         presenter.attachView(this)
     }
 
-    override fun initializeView(binding: ActivityMainBinding) {
+    override fun initializeView() {
         binding.recyclerView.run {
             adapter = myAdapter
             layoutManager = LinearLayoutManager(context)
@@ -65,5 +69,19 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             myAdapter.addRepository("$i")
         }
         myAdapter.notifyDataSetChanged()
+    }
+
+    override fun search() {
+        if (binding.progressBar.isGone()) {
+            presenter.search("dagger", 20)
+        }
+    }
+
+    override fun showProgressBar() {
+        binding.progressBar.toVisible()
+    }
+
+    override fun hideProgressBar() {
+        binding.progressBar.toGone()
     }
 }
