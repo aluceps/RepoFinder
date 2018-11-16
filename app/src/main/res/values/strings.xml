@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RepoFinder</string>
     <string name="not_found">Repository not found</string>
+    <string name="place_holder">type repository name…</string>
 </resources>
