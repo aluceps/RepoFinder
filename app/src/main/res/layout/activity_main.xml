@@ -30,7 +30,7 @@
                 android:background="@drawable/shape_input_circle"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="8dp"
-                android:hint="@string/place_holder"
+                android:hint="@string/type_hint"
                 android:paddingStart="16dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"

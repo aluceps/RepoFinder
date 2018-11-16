@@ -15,6 +15,8 @@ class MainContract {
 
         fun setItem(model: Repository)
 
+        fun setHeader(number: Long)
+
         fun clear()
 
         fun search(q: String)

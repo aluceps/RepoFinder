@@ -47,11 +47,14 @@ constructor(
                         view.clear()
                         when (t.items.isEmpty()) {
                             true -> view.setEmpty()
-                            else -> t.items
-                                    .map { it.toModel() }
-                                    .forEach {
-                                        view.setItem(it)
-                                    }
+                            else -> {
+                                view.setHeader(t.count)
+                                t.items
+                                        .map { it.toModel() }
+                                        .forEach {
+                                            view.setItem(it)
+                                        }
+                            }
                         }
                     }
 

@@ -91,6 +91,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         myAdapter.addRepository(model)
     }
 
+    override fun setHeader(number: Long) {
+        myAdapter.addHeader(number)
+    }
+
     override fun clear() {
         myAdapter.clear()
     }

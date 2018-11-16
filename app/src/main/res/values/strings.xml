@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">RepoFinder</string>
     <string name="not_found">Repository not found</string>
-    <string name="place_holder">type repository name…</string>
+    <string name="type_hint">type repository name…</string>
+    <string name="header_result">Result: %1$,3d</string>
 </resources>
