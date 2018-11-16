@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun search(q: String) {
-        presenter.search(q, 20)
+        presenter.search(q, 100)
     }
 
     override fun showProgressBar() {
