@@ -1,5 +1,8 @@
 package me.aluceps.repofinder.ui
 
+import android.content.Context
+import me.aluceps.repofinder.model.Repository
+
 class MainContract {
 
     interface View {
@@ -8,13 +11,19 @@ class MainContract {
 
         fun initializeView()
 
-        fun setItem()
+        fun setEmpty()
 
-        fun search()
+        fun setItem(model: Repository)
+
+        fun clear()
+
+        fun search(q: String)
 
         fun showProgressBar()
 
         fun hideProgressBar()
+
+        fun snackbar(message: String)
     }
 
     interface Presenter<T : View> {
@@ -22,6 +31,8 @@ class MainContract {
         fun attachView(view: T)
 
         fun search(q: String, limit: Int)
+
+        fun launchUrl(context: Context, url: String)
 
         fun destroy()
     }

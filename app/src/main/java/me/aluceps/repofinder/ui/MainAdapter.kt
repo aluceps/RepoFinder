@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import me.aluceps.repofinder.R
+import me.aluceps.repofinder.model.Repository
 import me.aluceps.repofinder.ui.item.EmptyViewHolder
 import me.aluceps.repofinder.ui.item.RepositoryViewHolder
 
@@ -24,8 +25,10 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         when (item.type) {
             Type.Empty -> Unit
             Type.Repository -> (holder as? RepositoryViewHolder)?.run {
-                initialize()
-                itemView.setOnClickListener { listener?.click() }
+                item.value?.let { model ->
+                    initialize(model)
+                    itemView.setOnClickListener { listener?.click(model.url) }
+                }
             }
             else -> Unit
         }
@@ -41,10 +44,18 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun addEmpty() {
         items.add(Item(Type.Empty, null))
+        notifyDataSetChanged()
     }
 
-    fun addRepository(repo: String) {
-        items.add(Item(Type.Repository, repo))
+    fun addRepository(model: Repository) {
+        val position = items.size
+        items.add(Item(Type.Repository, model))
+        notifyItemInserted(position)
+    }
+
+    fun clear() {
+        items.clear()
+        notifyDataSetChanged()
     }
 
     private enum class Type(val id: Int) {
@@ -55,11 +66,11 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private data class Item(
             val type: Type,
-            val value: String?
+            val value: Repository?
     )
 
     interface OnClickListener {
-        fun click()
+        fun click(url: String)
     }
 
     private var listener: OnClickListener? = null

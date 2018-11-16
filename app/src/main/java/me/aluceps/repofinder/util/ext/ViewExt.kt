@@ -1,4 +1,4 @@
-package me.aluceps.repofinder.util
+package me.aluceps.repofinder.util.ext
 
 import android.view.View
 
