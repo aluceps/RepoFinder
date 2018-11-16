@@ -7,6 +7,7 @@ fun Repository.toEntity(): RepositoryEntity = this.run {
     RepositoryEntity(
             id,
             name,
-            url
+            url,
+            owner.avater
     )
 }

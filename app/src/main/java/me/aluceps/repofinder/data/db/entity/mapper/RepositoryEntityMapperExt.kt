@@ -4,5 +4,5 @@ import me.aluceps.repofinder.data.db.entity.RepositoryEntity
 import me.aluceps.repofinder.model.Repository
 
 fun RepositoryEntity.toModel(): Repository = this.run {
-    Repository(id, name, url)
+    Repository(id, name, url, avater)
 }
