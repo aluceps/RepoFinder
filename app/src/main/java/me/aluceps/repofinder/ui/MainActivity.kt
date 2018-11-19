@@ -104,8 +104,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         myAdapter.clear()
     }
 
-    override fun search(q: String) {
-        presenter.search(q, 100)
+    override fun search(query: String) {
+        presenter.search(query, 100)
     }
 
     override fun showProgressBar() {

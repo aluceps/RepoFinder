@@ -20,7 +20,7 @@ class MainContract {
 
         fun clear()
 
-        fun search(q: String)
+        fun search(query: String)
 
         fun showProgressBar()
 
@@ -33,7 +33,7 @@ class MainContract {
 
         fun attachView(view: T)
 
-        fun search(q: String, limit: Int)
+        fun search(query: String, limit: Int)
 
         fun launchUrl(context: Context, url: String)
 

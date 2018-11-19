@@ -33,9 +33,9 @@ constructor(
         this.view = view
     }
 
-    override fun search(q: String, limit: Int) {
+    override fun search(query: String, limit: Int) {
         disposable = CompositeDisposable()
-        repository.repositories(q, currentPage, limit)
+        repository.repositories(query, currentPage, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<RepositoriesEntity> {
