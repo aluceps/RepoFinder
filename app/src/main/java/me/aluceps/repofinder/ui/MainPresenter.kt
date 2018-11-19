@@ -1,6 +1,7 @@
 package me.aluceps.repofinder.ui
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.support.customtabs.CustomTabsIntent
 import io.reactivex.SingleObserver
@@ -16,7 +17,8 @@ import javax.inject.Inject
 class MainPresenter @Inject
 constructor(
         private val repository: GithubRepository,
-        private val customTabsIntent: CustomTabsIntent
+        private val customTabsIntent: CustomTabsIntent,
+        private val preferences: SharedPreferences
 ) : MainContract.Presenter<MainContract.View> {
 
     private lateinit var view: MainContract.View
@@ -60,7 +62,7 @@ constructor(
 
                     override fun onError(e: Throwable) {
                         view.hideProgressBar()
-                        e.message?.let { view.snackbar(it) }
+                        e.message?.let { view.snackbar(it, preferences) }
                     }
                 })
     }

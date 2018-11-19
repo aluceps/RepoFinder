@@ -13,10 +13,10 @@ class RequestInterceptor @Inject constructor(
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response =
             chain.proceed(chain.request().newBuilder().apply {
-                preferences.getOAuth()?.let { addHeader(AUTH_TOKEN, it) }
+                preferences.getOAuth()?.let { if (it.isNotEmpty()) addHeader(AUTH_TOKEN, "token $it") }
             }.build())
 
     companion object {
-        private const val AUTH_TOKEN = "Authorization: token"
+        private const val AUTH_TOKEN = "Authorization"
     }
 }

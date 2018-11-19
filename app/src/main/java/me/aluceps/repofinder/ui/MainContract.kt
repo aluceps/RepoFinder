@@ -1,6 +1,7 @@
 package me.aluceps.repofinder.ui
 
 import android.content.Context
+import android.content.SharedPreferences
 import me.aluceps.repofinder.model.Repository
 
 class MainContract {
@@ -25,7 +26,7 @@ class MainContract {
 
         fun hideProgressBar()
 
-        fun snackbar(message: String)
+        fun snackbar(message: String, preferences: SharedPreferences)
     }
 
     interface Presenter<T : View> {

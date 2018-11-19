@@ -3,4 +3,8 @@
     <string name="not_found">Repository not found</string>
     <string name="type_hint">type any words…</string>
     <string name="header_result">Result: %1$,3d</string>
+    <string name="set_oauth">OAuth</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_text">Type your OAuth.</string>
 </resources>
