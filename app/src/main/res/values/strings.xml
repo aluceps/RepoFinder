@@ -6,5 +6,5 @@
     <string name="set_oauth">OAuth</string>
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">Cancel</string>
-    <string name="dialog_text">Type your OAuth.</string>
+    <string name="dialog_text">Type your personal access token.</string>
 </resources>
