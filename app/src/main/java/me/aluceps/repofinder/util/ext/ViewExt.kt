@@ -9,7 +9,3 @@ fun View.toVisible() {
 fun View.toGone() {
     visibility = View.GONE
 }
-
-fun View.isVisible(): Boolean = visibility == View.VISIBLE
-
-fun View.isGone(): Boolean = visibility == View.GONE
