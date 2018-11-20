@@ -8,7 +8,8 @@ data class Repository(
         val name: String,
         @SerializedName("html_url")
         val url: String,
-        val owner: Owner
+        val owner: Owner,
+        val description: String?
 ) {
     data class Owner(
             @SerializedName("avatar_url")

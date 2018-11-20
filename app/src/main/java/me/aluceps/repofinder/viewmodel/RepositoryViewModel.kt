@@ -8,20 +8,20 @@ class RepositoryViewModel : BaseObservable() {
 
     val name: ObservableField<String> = ObservableField()
 
-    val url: ObservableField<String> = ObservableField()
-
     val avater: ObservableField<String> = ObservableField()
+
+    val description: ObservableField<String> = ObservableField()
 
     init {
         name.set("")
-        url.set("")
         avater.set("")
+        description.set("")
     }
 
     private fun set(model: Repository) {
         name.set(model.name)
-        url.set(model.url)
         avater.set(model.avater)
+        description.set(model.description ?: "")
     }
 
     companion object {
