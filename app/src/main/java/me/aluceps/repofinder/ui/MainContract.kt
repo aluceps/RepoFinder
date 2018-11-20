@@ -26,12 +26,14 @@ class MainContract {
 
         fun hideProgressBar()
 
-        fun snackbar(message: String, preferences: SharedPreferences)
+        fun showSnackbar(message: String, preferences: SharedPreferences)
     }
 
     interface Presenter<T : View> {
 
         fun attachView(view: T)
+
+        fun initializePublisher()
 
         fun search(query: String, limit: Int)
 

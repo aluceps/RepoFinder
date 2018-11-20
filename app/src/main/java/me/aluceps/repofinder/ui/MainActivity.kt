@@ -68,16 +68,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
         binding.query.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                s?.let {
-                    presenter.destroy()
-                    when (it.isEmpty()) {
-                        true -> {
-                            clear()
-                            hideProgressBar()
-                        }
-                        else -> search(it.toString())
-                    }
-                }
+                s?.toString()?.let { presenter.queryPublisher.onNext(it) }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -86,6 +77,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
+        presenter.initializePublisher()
     }
 
     override fun setEmpty() {
@@ -105,7 +97,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun search(query: String) {
-        presenter.search(query, 100)
+        if (query.isEmpty()) {
+            clear()
+            hideProgressBar()
+            presenter.destroy()
+        } else {
+            presenter.search(query, 100)
+        }
     }
 
     override fun showProgressBar() {
@@ -116,24 +114,23 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         binding.progressBar.toGone()
     }
 
-    override fun snackbar(message: String, preferences: SharedPreferences) {
+    override fun showSnackbar(message: String, preferences: SharedPreferences) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).apply {
             setAction(R.string.set_oauth) {
                 val editText = EditText(it.context).apply {
                     inputType = InputType.TYPE_CLASS_TEXT
                 }
-                AlertDialog.Builder(it.context).apply {
-                    setTitle(R.string.dialog_text)
-                    setView(editText)
-                    setNegativeButton(R.string.dialog_cancel, null)
-                    setPositiveButton(R.string.dialog_ok) { _, _ ->
-                        editText.text?.let {
-                            if (it.isNotEmpty()) {
-                                preferences.setOAuth(it.toString())
+                AlertDialog.Builder(it.context)
+                        .setTitle(R.string.dialog_text)
+                        .setView(editText)
+                        .setNegativeButton(R.string.dialog_cancel, null)
+                        .setPositiveButton(R.string.dialog_ok) { _, _ ->
+                            editText.text?.toString()?.let {
+                                if (it.isNotEmpty()) {
+                                    preferences.setOAuth(it)
+                                }
                             }
-                        }
-                    }
-                }.show()
+                        }.show()
             }
         }.show()
     }
