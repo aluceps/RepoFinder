@@ -13,7 +13,7 @@
             />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorGray2"
@@ -33,5 +33,5 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Result: 10,000"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

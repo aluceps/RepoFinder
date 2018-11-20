@@ -9,8 +9,8 @@ interface GithubService {
 
     @GET("/search/repositories")
     fun repositories(
-        @Query("q") q: String,
-        @Query("page") page: Int,
-        @Query("per_page") limit: Int
+            @Query("q") q: String,
+            @Query("page") page: Int,
+            @Query("per_page") limit: Int
     ): Single<Repositories>
 }

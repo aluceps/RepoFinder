@@ -1,7 +1,7 @@
 package me.aluceps.repofinder.viewmodel
 
-import android.databinding.BaseObservable
-import android.databinding.ObservableField
+import androidx.databinding.BaseObservable
+import androidx.databinding.ObservableField
 import me.aluceps.repofinder.model.Repository
 
 class RepositoryViewModel : BaseObservable() {

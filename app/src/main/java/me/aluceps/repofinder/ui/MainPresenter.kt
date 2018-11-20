@@ -3,7 +3,7 @@ package me.aluceps.repofinder.ui
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
-import android.support.customtabs.CustomTabsIntent
+import androidx.browser.customtabs.CustomTabsIntent
 import io.reactivex.Observer
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers

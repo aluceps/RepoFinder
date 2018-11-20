@@ -1,18 +1,18 @@
 package me.aluceps.repofinder.ui
 
 import android.content.SharedPreferences
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import me.aluceps.repofinder.MyApplication
 import me.aluceps.repofinder.R
 import me.aluceps.repofinder.databinding.ActivityMainBinding
