@@ -1,6 +1,6 @@
 package me.aluceps.repofinder.ui.item
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 class EmptyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

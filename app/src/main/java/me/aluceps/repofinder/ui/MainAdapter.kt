@@ -1,8 +1,8 @@
 package me.aluceps.repofinder.ui
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import me.aluceps.repofinder.R
 import me.aluceps.repofinder.model.Repository
 import me.aluceps.repofinder.ui.item.EmptyViewHolder

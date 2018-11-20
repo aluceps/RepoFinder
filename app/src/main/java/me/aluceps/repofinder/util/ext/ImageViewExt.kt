@@ -1,6 +1,6 @@
 package me.aluceps.repofinder.util.ext
 
-import android.databinding.BindingAdapter
+import androidx.databinding.BindingAdapter
 import android.widget.ImageView
 import me.aluceps.repofinder.util.common.GlideApp
 
