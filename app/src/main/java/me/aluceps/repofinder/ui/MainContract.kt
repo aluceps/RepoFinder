@@ -20,20 +20,22 @@ class MainContract {
 
         fun clear()
 
-        fun search(q: String)
+        fun search(query: String)
 
         fun showProgressBar()
 
         fun hideProgressBar()
 
-        fun snackbar(message: String, preferences: SharedPreferences)
+        fun showSnackbar(message: String, preferences: SharedPreferences)
     }
 
     interface Presenter<T : View> {
 
         fun attachView(view: T)
 
-        fun search(q: String, limit: Int)
+        fun initializePublisher()
+
+        fun search(query: String, limit: Int)
 
         fun launchUrl(context: Context, url: String)
 
