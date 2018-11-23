@@ -27,14 +27,15 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="w,1:1"
-            app:layout_constraintEnd_toStartOf="@id/full_name"
+            app:layout_constraintEnd_toStartOf="@id/repository_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:setAvater="@{model.avater}"
+            tools:background="@android:color/darker_gray"
             />
 
         <TextView
-            android:id="@+id/full_name"
+            android:id="@+id/repository_name"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -42,7 +43,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{model.name}"
-            app:layout_constraintBottom_toTopOf="@id/html_url"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/avater"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,19 +52,21 @@
             />
 
         <TextView
-            android:id="@+id/html_url"
+            android:id="@+id/description"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@{model.url}"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="@{model.description}"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/full_name"
-            app:layout_constraintTop_toBottomOf="@id/full_name"
-            tools:text="https://github.com/square/dagger"
+            app:layout_constraintStart_toStartOf="@id/repository_name"
+            app:layout_constraintTop_toBottomOf="@id/repository_name"
+            tools:text="Dagger 2 is a compile-time evolution approach to dependency injection. Taking the approach started in Dagger 1.x to its ultimate conclusion, Dagger 2.x eliminates all reflection, and improves code clarity by removing the traditional ObjectGraph/Injector in favor of user-specified @Component interfaces."
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
